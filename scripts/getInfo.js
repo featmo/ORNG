@@ -1,9 +1,9 @@
 const os = require("os")
-const ipc = require('electron').ipcRenderer
+const ipc = require('electron').ipcRenderer // we need to talk
 
 var osSpec = os.release();
 var divElements = document.querySelectorAll(".app-contain");
-var iconDivElement = document.getElementById('move');
+var iconDivElement = document.getElementById('move'); //this div moves the icon around... cool huh?
 var imageElement = document.createElement('img');
 imageElement.setAttribute('width','125')
 imageElement.setAttribute('height','125')
@@ -29,6 +29,7 @@ function getInfo(){
           setTimeout(getTime,1000)
   }
 
+  //concatenates then appends as string to div
   function getDate(){
     divElements[1]
       .innerHTML =
@@ -38,16 +39,24 @@ function getInfo(){
           setTimeout(getDate,360000)
     //divElements[3].innerHTML = Math.floor(os.freemem()/1000000000)+"/"+Math.floor((os.totalmem()/1000000000) -1)
   }
-
+  //get the date and time duh
   getTime()
   getDate()
 
 }
+//does what it says on the tin
 function getSystemInfo() {
   divElements[4].innerHTML = (os.platform() == 'win32' ? 'windows':'windows')
 }
 //
 function getWeatherIcon(id){
+  /**
+  see https://openweathermap.org/weather-conditions
+  id is passed and concatenated to file path.. this is good for two reasons:
+  1.because of the icon naming convention i don't need 9 if else clauses to
+  append a damn image...
+  2.reason 1 is all i got
+  **/
     imageElement.setAttribute('src','./assets/weather-icons/all/_'+id+'.svg');
     imageElement.setAttribute('id','weather-icon');
     iconDivElement.appendChild(imageElement);
@@ -55,11 +64,13 @@ function getWeatherIcon(id){
 function getWeatherInfo() {
   ipc.send('get-weather','sent')
   ipc.on('show-weather-main',(event, arg) => {
+    //recieved object is added to html
     divElements[5].innerHTML = arg[0]; //dublin
     divElements[6].innerHTML = arg[1]; //rain
     divElements[7].innerHTML = arg[2]; //light rain
     divElements[8].innerHTML = arg[3]; //17
     //divElements[9].innerHTML = arg[4]; //10d
+    //passes icon code to new function
     getWeatherIcon(arg[4])
   })
   setTimeout(getWeatherInfo,3600000)

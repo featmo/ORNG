@@ -1,7 +1,7 @@
 const{app,BrowserWindow} = require("electron")
 const path = require("path")
 const url =  require("url")
-ipc = require('electron').ipcMain
+ipc = require('electron').ipcMain //I need to listen
 
 let fetch = require('node-fetch');
 const appCall = 'http://api.openweathermap.org/data/2.5/weather?q=';
@@ -26,6 +26,7 @@ function getWeather(location, api){
     }
 
     ipc.on('get-weather', (event, arg) => {
+      // send previously created weatherObj through to the renderer
       event.sender.send('show-weather-main', weatherObj)
     })
 
