@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body style='-webkit-app-region: drag'>
+  <div class="comp">
+    <!---->
+  <div class="app-app-container" id="page-1">
+    <div class="app-container">
+      <!--Something borrowed-->
+      <div class="app-contain"></div>
+      <div class="app-contain"></div>
+      <div class="app-contain"><!--The power af js does the rest-->
+        <div id="image">
+          <img src='./assets/img/icon.png' style="border-radius: 50%;" id="icon">
+        </div>
+      </div>
+      <div class="app-contain"></div>
+      <div class="app-contain"></div>
+      <!--Something borrowed-->
+    </div>
+  </div>
+
+<!--Next Page-->
+<div class="app-app-container" id="page-2">
+  <div class="app-container">
+    <div class="app-contain"></div>
+
+    <div class="container-block" id="weather-info">
+      <div class="icon-area" id="icon-area">
+        <div class='icon-area' id='move'>
+        </div>
+      </div>
+      <div class="text">
+        <div class="app-contain"></div>
+        <div class="app-contain"></div>
+        <div class="app-contain"></div>
+        <div class="app-contain"></div>
+      </div>
+  </div>
+
+
+
+</div>
+<!--comp-->
+</div>
+
+  <script>
+    document.getElementById('icon').ondragstart = function() { return false; };
+    var x = document.getElementById('image');
+    var appConOne = document.getElementById('page-1');
+    var appConTwo = document.getElementById('page-2');
+
+    x.addEventListener('click',()=>{
+      if(appConOne.style.width === '100%'){
+        appConOne.style.setProperty('width','30%')
+        appConTwo.style.setProperty('width','66%')
+        appConTwo.style.setProperty('display','block')
+
+      } else {
+        appConTwo.style.setProperty('display','hidden')
+        appConTwo.style.setProperty('width','0%')
+        appConOne.style.setProperty('width','100%')
+        appConOne.style.setProperty('height','50%')
+
+
+      }
+
+    });
+  </script>
+  <script>
+
+  </script>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./scripts/getInfo.js"></script>
+  <!--script src="./scripts/citylist.json"></script-->
+
+<body>
+  <script src="./scripts/getWeather.js"></script>
+</html>
