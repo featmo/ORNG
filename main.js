@@ -39,7 +39,7 @@ function createParentWindow(){
   ** set parameters for the browser window
   ** show: false prevents window from being show... se win.on line 19
   **/
-  win = new BrowserWindow({width:480,height:360,resizable:true, useContentSize:true, transparent:true, frame:false, show:false})
+  win = new BrowserWindow({width:480,height:360,resizable:true, icon: './assets/img/app-icon-01.png', useContentSize:true, transparent:true, frame:false, show:false})
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file',
