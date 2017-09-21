@@ -43,7 +43,7 @@ html, body{
   clear: both;
 }
 #page-2{
-  
+
   float:right;
   z-index: 1;
   transition: all 500ms;
@@ -194,6 +194,7 @@ Animation keyframes
   font-size: 30pt;
 }
 #page-2 .app-container #info-7{
+  white-space: nowrap;
   font-size:3vw;
   letter-spacing: 2pt;
 }

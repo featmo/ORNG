@@ -1,16 +1,29 @@
 {
   "name": "hud",
+  "author":"Moses Eribo",
+
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "",
+    "dist": "build"
   },
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^1.7.5"
+    "electron": "^1.7.5",
+    "electron-builder": "^19.27.7",
+    "electron-packager": "^9.1.0"
   },
   "dependencies": {
     "feedsub": "^0.4.0",
     "node-fetch": "^1.7.3",
     "rss-watcher": "^1.3.0"
+  },
+  "build": {
+    "win":{
+      "target": "nsis",
+      "icon": "./assets/ico.ico"
+    }
   }
 }
