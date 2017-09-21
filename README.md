@@ -9,3 +9,7 @@ and make all the changes you want.
 [Stackoverflow](https://stackoverflow.com/), [npm](https://www.npmjs.com/), [this Medium Post](https://medium.com/coderbyte/a-guide-to-becoming-a-full-stack-developer-in-2017-5c3c08a1600c) 
 for persuading me to invest sleepless nights to kinda not suck at js
 
+## Screenshots
+![alt text](https://github.com/moseseribo/ORNG/blob/master/images/orng_1.png)
+![alt text](https://github.com/moseseribo/ORNG/blob/master/images/orng_2.png)
+
