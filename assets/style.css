@@ -150,17 +150,20 @@ Animation keyframes
   margin-bottom: 0%;
   text-shadow: 0px 1px 1px rgba(0,0,0,0.5);
 }
-
+#page2 .app-container{
+  width:80%;
+}
 #page-2 .app-container #info-5{
-
+  margin-right: 10%;
   margin-top: 5px;
   width:100%;
   font-size: 13pt;
-  height:3%;
+  height:10%%;
   letter-spacing:0.097em;
+  white-space: nowrap;
 }
 #weather-info{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .container-block{
   display: grid;
@@ -186,21 +189,23 @@ Animation keyframes
   transition: all 300ms ease;
   animation:movement 8s infinite;
 }
-#text{
-
+.text{
+  margin-right: 10%;
   display: grid;
 }
 #page-2 .app-container #info-6{
-  font-size: 30pt;
+  white-space: nowrap;
+  font-size: 30px;
 }
 #page-2 .app-container #info-7{
   white-space: nowrap;
-  font-size:3vw;
+  font-size:11px;
   letter-spacing: 2pt;
 }
 #page-2 .app-container #info-8{
-  font-size:15vw;
+  font-size:40px;
   letter-spacing: 2pt;
+  white-space: nowrap;
 }
 @keyframes movement{
   0%{

@@ -1,5 +1,6 @@
 const os = require("os")
 const ipc = require('electron').ipcRenderer // we need to talk
+require('events').EventEmitter.prototype._maxListeners = 0;
 
 var osSpec = os.release();
 var divElements = document.querySelectorAll(".app-contain");
@@ -24,9 +25,9 @@ function getInfo(){
       divElements[0]
         .innerHTML =
             (d.getHours() > 9 ? d.getHours() : "0"+d.getHours())+":" //if hour is less than 9 append 0 to front i.e 9 becomes 09
-          + (d.getMinutes() > 9 ? d.getMinutes() : "0"+d.getMinutes()) /**+":"
-          + (d.getSeconds() > 9 ? d.getSeconds() : "0"+d.getSeconds())**/
-          setTimeout(getTime,1000)
+          + (d.getMinutes() > 9 ? d.getMinutes() : "0"+d.getMinutes()) +":"
+          + (d.getSeconds() > 9 ? d.getSeconds() : "0"+d.getSeconds())
+          //setTimeout(getTime,1000)
   }
 
   //concatenates then appends as string to div
@@ -36,12 +37,12 @@ function getInfo(){
             "."+(d.getDate() > 9 ? d.getDate() : '0'+d.getDate())+" ."
           + ((d.getMonth()+1) > 9 ? (d.getMonth()+1) : '0'+(d.getMonth()+1) )+" ."
           + d.getFullYear()
-          setTimeout(getDate,360000)
+          //setTimeout(getDate,360000)
     //divElements[3].innerHTML = Math.floor(os.freemem()/1000000000)+"/"+Math.floor((os.totalmem()/1000000000) -1)
   }
   //get the date and time duh
-  getTime()
   getDate()
+  getTime()
 
 }
 //does what it says on the tin
@@ -77,7 +78,11 @@ function getWeatherInfo() {
 }
 
 // create div elements
+
 createDivs()
+setInterval(getInfo, 1000)
 getSystemInfo()
 getWeatherInfo()
-getInfo()
+//setInterval(getWeatherInfo, 3600000)
+
+//getInfo()
